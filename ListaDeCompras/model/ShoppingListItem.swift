@@ -9,5 +9,5 @@ import UIKit
 
 struct ShoppingListItem {
     let item: String
-    let image: String
+    //let image: String?
 }

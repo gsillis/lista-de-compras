@@ -7,13 +7,18 @@
 
 import Foundation
 
-
 class ShoppingListItemController {
-    private var item: ShoppingListItem?
+    private var arrayItem: [ShoppingListItem ] = []
 
     var count: Int {
-        guard let value = item?.item.count else { return 0 }
-        return value
+        return self.arrayItem.count
     }
 
+    func loadItem(indexPath: IndexPath) ->  ShoppingListItem? {
+        return self.arrayItem[indexPath.row]
+    }
+
+    func didCreateItem(item: String) {
+        self.arrayItem.append(ShoppingListItem(item: item))
+    }
 }

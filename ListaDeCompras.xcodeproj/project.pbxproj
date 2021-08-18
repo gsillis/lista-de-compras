@@ -16,7 +16,6 @@
 		DEA06BC526CC8E04009465F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA06BC326CC8E04009465F8 /* LaunchScreen.storyboard */; };
 		DEA06BD026CC9032009465F8 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA06BCE26CC9032009465F8 /* CustomCell.swift */; };
 		DEA06BD126CC9032009465F8 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA06BCF26CC9032009465F8 /* CustomCell.xib */; };
-		DEA06BD626CC93B8009465F8 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA06BD526CC93B8009465F8 /* UIAlertController+Extensions.swift */; };
 		DEA06BD926CC9B8A009465F8 /* ShoppingListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA06BD826CC9B8A009465F8 /* ShoppingListItem.swift */; };
 		DEA06BDC26CCA146009465F8 /* ShoppingListItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA06BDB26CCA146009465F8 /* ShoppingListItemController.swift */; };
 /* End PBXBuildFile section */
@@ -33,7 +32,6 @@
 		DEA06BC626CC8E04009465F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DEA06BCE26CC9032009465F8 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		DEA06BCF26CC9032009465F8 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
-		DEA06BD526CC93B8009465F8 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		DEA06BD826CC9B8A009465F8 /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
 		DEA06BDB26CCA146009465F8 /* ShoppingListItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItemController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,7 +68,6 @@
 			children = (
 				DEA06BDA26CCA130009465F8 /* controller */,
 				DEA06BD726CC9B5F009465F8 /* model */,
-				DEA06BD426CC9391009465F8 /* extensions */,
 				DEA06BCC26CC8EB3009465F8 /* view */,
 				DEA06BB526CC8E00009465F8 /* AppDelegate.swift */,
 				DEA06BB726CC8E00009465F8 /* SceneDelegate.swift */,
@@ -99,14 +96,6 @@
 				DEA06BCF26CC9032009465F8 /* CustomCell.xib */,
 			);
 			path = "custom cell";
-			sourceTree = "<group>";
-		};
-		DEA06BD426CC9391009465F8 /* extensions */ = {
-			isa = PBXGroup;
-			children = (
-				DEA06BD526CC93B8009465F8 /* UIAlertController+Extensions.swift */,
-			);
-			path = extensions;
 			sourceTree = "<group>";
 		};
 		DEA06BD726CC9B5F009465F8 /* model */ = {
@@ -202,7 +191,6 @@
 				DEA06BD926CC9B8A009465F8 /* ShoppingListItem.swift in Sources */,
 				DEA06BDC26CCA146009465F8 /* ShoppingListItemController.swift in Sources */,
 				DEA06BD026CC9032009465F8 /* CustomCell.swift in Sources */,
-				DEA06BD626CC93B8009465F8 /* UIAlertController+Extensions.swift in Sources */,
 				DEA06BB826CC8E00009465F8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
