@@ -8,6 +8,9 @@
 import UIKit
 
 class ShoppingListViewController: UIViewController {
+
+    private var controller: ShoppingListItemController?
+
     @IBOutlet weak var shoppingTableView: UITableView!
 
     override func viewDidLoad() {
@@ -28,12 +31,15 @@ class ShoppingListViewController: UIViewController {
 
 extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return self.controller?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CustomCell? = tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier, for: indexPath) as? CustomCell
-
         return cell ?? UITableViewCell()
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("clicou")
     }
 }
