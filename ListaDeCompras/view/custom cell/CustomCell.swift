@@ -25,7 +25,7 @@ class CustomCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setupCell(value: ShoppingListItem?) {
+    func addNewItem(value: ShoppingListItem?) {
         if let data = value {
             self.shoppingImage.image = UIImage(named: "brand-identity")
             self.shoppingItemLabel.text = data.item
