@@ -11,7 +11,6 @@ class ShoppingListViewController: UIViewController {
 
     private var controller = ShoppingListItemController()
 
-    // gambiarra
     private var id: Int?
 
     @IBOutlet weak var shoppingTableView: UITableView!
@@ -41,22 +40,25 @@ class ShoppingListViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Tirar foto", style: .default, handler: { _ in
             self.imagePicker(sourceType: .camera)
         }))
+
         alert.addAction(UIAlertAction(title: "Escolher da galeria", style: .default, handler: { _ in
             self.imagePicker(sourceType: .photoLibrary)
         }))
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: { _ in
 
-        }))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+
         alert.addAction(UIAlertAction(title: "Remover", style: .destructive, handler: { _ in
             // completion para remover item
             removeCompletion()
         }))
+        
         self.present(alert, animated: true, completion: nil)
     }
 
     private func imagePicker(sourceType: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
     }
 }
@@ -81,12 +83,14 @@ extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.id = indexPath.row
-        self.alertSheet(removeCompletion: {
-            //remove os itens do array no indexpath
-            self.controller.removeItem(indexPath: indexPath)
-            self.shoppingTableView.reloadData()
-        })
+        if !controller.emptyState() {
+            self.id = indexPath.row
+            self.alertSheet(removeCompletion: {
+                //remove os itens do array no indexpath
+                self.controller.removeItem(indexPath: indexPath)
+                self.shoppingTableView.reloadData()
+            })
+        }
     }
 }
 
