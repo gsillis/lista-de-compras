@@ -66,8 +66,8 @@
 		DEA06BB426CC8E00009465F8 /* ListaDeCompras */ = {
 			isa = PBXGroup;
 			children = (
-				DEA06BDA26CCA130009465F8 /* controller */,
 				DEA06BD726CC9B5F009465F8 /* model */,
+				DEA06BDA26CCA130009465F8 /* controller */,
 				DEA06BCC26CC8EB3009465F8 /* view */,
 				DEA06BB526CC8E00009465F8 /* AppDelegate.swift */,
 				DEA06BB726CC8E00009465F8 /* SceneDelegate.swift */,
