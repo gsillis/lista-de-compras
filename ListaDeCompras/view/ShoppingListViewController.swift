@@ -57,6 +57,9 @@ class ShoppingListViewController: UIViewController {
 
     private func imagePicker(sourceType: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
+
+        imagePicker.sourceType = sourceType
+
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
