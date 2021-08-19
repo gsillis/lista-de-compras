@@ -11,6 +11,9 @@ class ShoppingListViewController: UIViewController {
 
     private var controller = ShoppingListItemController()
 
+    // gambiarra
+    private var id: Int?
+
     @IBOutlet weak var shoppingTableView: UITableView!
 
     override func viewDidLoad() {
@@ -26,27 +29,11 @@ class ShoppingListViewController: UIViewController {
     }
     
     @IBAction func addButton(_ sender: UIButton) {
-        self.alert(title: "Produto", message: "Insira o produto")
-    }
-
-    private func alert(title: String, message: String) {
-        let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-
-        alert.addTextField { (textfield) in
-            textfield.placeholder = "insira o produto"
-        }
-
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
-            guard let texfield = alert.textFields?[0], let text = texfield.text else { return }
-
+        self.alert(title: "Novo item", message: "Deseja adicionar um item?") { text in
             self.controller.didCreateItem(item: text)
-
             self.shoppingTableView.reloadData()
-        }))
-
-        present(alert, animated: true, completion: nil)
-}
+        }
+    }
 
     private func alertSheet(removeCompletion: @escaping()-> Void) {
         let alert: UIAlertController = UIAlertController(title: "Alerta", message: "Deseja realizar alterações no produto?", preferredStyle: .actionSheet)
@@ -94,6 +81,7 @@ extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.id = indexPath.row
         self.alertSheet(removeCompletion: {
             //remove os itens do array no indexpath
             self.controller.removeItem(indexPath: indexPath)
@@ -105,9 +93,10 @@ extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource
 extension ShoppingListViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let info = info[.originalImage] else { return }
-        self.controller.update(newImage: String(describing: info))
+        guard let info = info[.imageURL] else { return }
 
+        self.controller.update(newImage: String(describing: info), id: self.id ?? 0)
+        self.shoppingTableView.reloadData()
         self.dismiss(animated: true, completion: nil)
     }
 }

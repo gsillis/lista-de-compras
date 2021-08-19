@@ -27,8 +27,20 @@ class CustomCell: UITableViewCell {
 
     func addNewItem(value: ShoppingListItem?) {
         if let data = value {
-            self.shoppingImage.image = UIImage(named: data.image )
-            self.shoppingItemLabel.text = data.item
+
+            if data.image.hasPrefix("brand") {
+                self.shoppingItemLabel.text = data.item
+                self.shoppingImage.image = UIImage(named: data.image )
+            } else {
+
+                do {
+                    guard  let url: URL = URL(string: data.image) else { return }
+                    let data = try Data(contentsOf: url, options: .mappedIfSafe)
+                    self.shoppingImage.image = UIImage(data: data)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
         }
     }
 

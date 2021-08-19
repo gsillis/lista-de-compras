@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		DEA06BDC26CCA146009465F8 /* ShoppingListItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA06BDB26CCA146009465F8 /* ShoppingListItemController.swift */; };
 		DEC6F82B26CEA62F00EF5985 /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC6F82926CEA62F00EF5985 /* EmptyCell.swift */; };
 		DEC6F82C26CEA62F00EF5985 /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEC6F82A26CEA62F00EF5985 /* EmptyCell.xib */; };
+		DEC6F82E26CEAF2A00EF5985 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC6F82D26CEAF2A00EF5985 /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		DEA06BDB26CCA146009465F8 /* ShoppingListItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItemController.swift; sourceTree = "<group>"; };
 		DEC6F82926CEA62F00EF5985 /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
 		DEC6F82A26CEA62F00EF5985 /* EmptyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCell.xib; sourceTree = "<group>"; };
+		DEC6F82D26CEAF2A00EF5985 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,11 +53,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CBE30C5FCFF451B0711CF72A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DE8E243526CED3EC00C06C31 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DEC6F82D26CEAF2A00EF5985 /* UIViewController+Extensions.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		DEA06BA926CC8E00009465F8 = {
 			isa = PBXGroup;
 			children = (
 				DEA06BB426CC8E00009465F8 /* ListaDeCompras */,
 				DEA06BB326CC8E00009465F8 /* Products */,
+				CBE30C5FCFF451B0711CF72A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +88,7 @@
 		DEA06BB426CC8E00009465F8 /* ListaDeCompras */ = {
 			isa = PBXGroup;
 			children = (
+				DE8E243526CED3EC00C06C31 /* extensions */,
 				DEA06BD726CC9B5F009465F8 /* model */,
 				DEA06BDA26CCA130009465F8 /* controller */,
 				DEA06BCC26CC8EB3009465F8 /* view */,
@@ -196,6 +215,7 @@
 				DEC6F82B26CEA62F00EF5985 /* EmptyCell.swift in Sources */,
 				DEA06BB626CC8E00009465F8 /* AppDelegate.swift in Sources */,
 				DEA06BC026CC8E00009465F8 /* ListaDeCompras.xcdatamodeld in Sources */,
+				DEC6F82E26CEAF2A00EF5985 /* UIViewController+Extensions.swift in Sources */,
 				DEA06BD926CC9B8A009465F8 /* ShoppingListItem.swift in Sources */,
 				DEA06BDC26CCA146009465F8 /* ShoppingListItemController.swift in Sources */,
 				DEA06BD026CC9032009465F8 /* CustomCell.swift in Sources */,

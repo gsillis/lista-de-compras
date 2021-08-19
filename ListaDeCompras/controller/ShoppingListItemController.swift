@@ -29,10 +29,8 @@ class ShoppingListItemController {
         self.arrayItem.append(ShoppingListItem(item: item, image: "brand-identity"))
     }
 
-    func update(newImage: String) {
-        if let index = self.arrayItem.firstIndex(where: ({$0.image == newImage})) {
-            arrayItem[index].image = newImage
-        }
+    func update(newImage: String, id: Int) {
+        self.arrayItem[id].image = newImage
     }
 
     func removeItem(indexPath: IndexPath) {
