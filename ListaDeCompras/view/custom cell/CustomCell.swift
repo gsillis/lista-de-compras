@@ -34,6 +34,7 @@ class CustomCell: UITableViewCell {
             } else {
 
                 do {
+                    // transforma a URL da imagem em Data e depois em UIImage
                     guard  let url: URL = URL(string: data.image) else { return }
                     let data = try Data(contentsOf: url, options: .mappedIfSafe)
                     self.shoppingImage.image = UIImage(data: data)
@@ -41,12 +42,6 @@ class CustomCell: UITableViewCell {
                     print(error.localizedDescription)
                 }
             }
-        }
-    }
-
-    func updateImage(image: ShoppingListItem?) {
-        if let data = image {
-            self.shoppingImage.image = UIImage(named: data.image )
         }
     }
 }
