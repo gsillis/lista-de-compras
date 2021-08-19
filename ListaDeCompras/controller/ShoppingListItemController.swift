@@ -11,7 +11,14 @@ class ShoppingListItemController {
     private var arrayItem: [ShoppingListItem ] = []
 
     var count: Int {
+        if arrayItem.isEmpty {
+            return 1
+        }
         return self.arrayItem.count
+    }
+
+    func emptyState() -> Bool {
+        return arrayItem.isEmpty
     }
 
     func loadItem(indexPath: IndexPath) ->  ShoppingListItem? {
@@ -22,10 +29,8 @@ class ShoppingListItemController {
         self.arrayItem.append(ShoppingListItem(item: item, image: "brand-identity"))
     }
 
-    func update(newImage: String) {
-        if let index = self.arrayItem.firstIndex(where: ({$0.image == newImage})) {
-            arrayItem[index].image = newImage
-        }
+    func update(newImage: String, id: Int) {
+        self.arrayItem[id].image = newImage
     }
 
     func removeItem(indexPath: IndexPath) {
