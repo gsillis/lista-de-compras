@@ -15,9 +15,13 @@ class ShoppingListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.shoppingTableView.delegate = self
         self.shoppingTableView.dataSource = self
+
         self.shoppingTableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: CustomCell.identifier)
+        self.shoppingTableView.register(UINib(nibName: "EmptyCell", bundle: nil), forCellReuseIdentifier: EmptyCell.identifier)
+
         self.shoppingTableView.tableFooterView = UIView()
     }
     
@@ -76,11 +80,17 @@ extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: CustomCell? = tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier, for: indexPath) as? CustomCell
+        if controller.emptyState() {
+            let emptyCell: EmptyCell? = tableView.dequeueReusableCell(withIdentifier: EmptyCell.identifier, for: indexPath) as? EmptyCell
 
-        cell?.addNewItem(value: self.controller.loadItem(indexPath: indexPath))
-        
-        return cell ?? UITableViewCell()
+            return emptyCell ?? UITableViewCell()
+        } else {
+            let cell: CustomCell? = tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier, for: indexPath) as? CustomCell
+
+            cell?.addNewItem(value: self.controller.loadItem(indexPath: indexPath))
+
+            return cell ?? UITableViewCell()
+        }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

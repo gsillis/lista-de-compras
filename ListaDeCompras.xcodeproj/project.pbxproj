@@ -18,6 +18,8 @@
 		DEA06BD126CC9032009465F8 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA06BCF26CC9032009465F8 /* CustomCell.xib */; };
 		DEA06BD926CC9B8A009465F8 /* ShoppingListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA06BD826CC9B8A009465F8 /* ShoppingListItem.swift */; };
 		DEA06BDC26CCA146009465F8 /* ShoppingListItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA06BDB26CCA146009465F8 /* ShoppingListItemController.swift */; };
+		DEC6F82B26CEA62F00EF5985 /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC6F82926CEA62F00EF5985 /* EmptyCell.swift */; };
+		DEC6F82C26CEA62F00EF5985 /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEC6F82A26CEA62F00EF5985 /* EmptyCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		DEA06BCF26CC9032009465F8 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		DEA06BD826CC9B8A009465F8 /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
 		DEA06BDB26CCA146009465F8 /* ShoppingListItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItemController.swift; sourceTree = "<group>"; };
+		DEC6F82926CEA62F00EF5985 /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
+		DEC6F82A26CEA62F00EF5985 /* EmptyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 			children = (
 				DEA06BCE26CC9032009465F8 /* CustomCell.swift */,
 				DEA06BCF26CC9032009465F8 /* CustomCell.xib */,
+				DEC6F82926CEA62F00EF5985 /* EmptyCell.swift */,
+				DEC6F82A26CEA62F00EF5985 /* EmptyCell.xib */,
 			);
 			path = "custom cell";
 			sourceTree = "<group>";
@@ -172,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEA06BC526CC8E04009465F8 /* LaunchScreen.storyboard in Resources */,
+				DEC6F82C26CEA62F00EF5985 /* EmptyCell.xib in Resources */,
 				DEA06BC226CC8E04009465F8 /* Assets.xcassets in Resources */,
 				DEA06BD126CC9032009465F8 /* CustomCell.xib in Resources */,
 				DEA06BBD26CC8E00009465F8 /* Main.storyboard in Resources */,
@@ -186,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEA06BBA26CC8E00009465F8 /* ShoppingListViewController.swift in Sources */,
+				DEC6F82B26CEA62F00EF5985 /* EmptyCell.swift in Sources */,
 				DEA06BB626CC8E00009465F8 /* AppDelegate.swift in Sources */,
 				DEA06BC026CC8E00009465F8 /* ListaDeCompras.xcdatamodeld in Sources */,
 				DEA06BD926CC9B8A009465F8 /* ShoppingListItem.swift in Sources */,

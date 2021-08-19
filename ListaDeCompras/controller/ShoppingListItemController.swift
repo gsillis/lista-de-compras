@@ -11,7 +11,14 @@ class ShoppingListItemController {
     private var arrayItem: [ShoppingListItem ] = []
 
     var count: Int {
+        if arrayItem.isEmpty {
+            return 1
+        }
         return self.arrayItem.count
+    }
+
+    func emptyState() -> Bool {
+        return arrayItem.isEmpty
     }
 
     func loadItem(indexPath: IndexPath) ->  ShoppingListItem? {
