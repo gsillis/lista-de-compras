@@ -43,10 +43,4 @@ class CustomCell: UITableViewCell {
             }
         }
     }
-
-    func updateImage(image: ShoppingListItem?) {
-        if let data = image {
-            self.shoppingImage.image = UIImage(named: data.image )
-        }
-    }
 }
