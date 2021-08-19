@@ -27,8 +27,14 @@ class CustomCell: UITableViewCell {
 
     func addNewItem(value: ShoppingListItem?) {
         if let data = value {
-            self.shoppingImage.image = UIImage(named: "brand-identity")
+            self.shoppingImage.image = UIImage(named: data.image )
             self.shoppingItemLabel.text = data.item
+        }
+    }
+
+    func updateImage(image: ShoppingListItem?) {
+        if let data = image {
+            self.shoppingImage.image = UIImage(named: data.image )
         }
     }
 }

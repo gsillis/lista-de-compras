@@ -25,21 +25,48 @@ class ShoppingListViewController: UIViewController {
         self.alert(title: "Produto", message: "Insira o produto")
     }
 
-   private func alert(title: String, message: String) {
+    private func alert(title: String, message: String) {
         let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
         alert.addTextField { (textfield) in
-            textfield.delegate = self
             textfield.placeholder = "insira o produto"
         }
 
-        let cancel: UIAlertAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-        let confirm: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+            guard let texfield = alert.textFields?[0], let text = texfield.text else { return }
 
-        alert.addAction(cancel)
-        alert.addAction(confirm)
+            self.controller.didCreateItem(item: text)
+
+            self.shoppingTableView.reloadData()
+        }))
 
         present(alert, animated: true, completion: nil)
+}
+
+    private func alertSheet(removeCompletion: @escaping()-> Void) {
+        let alert: UIAlertController = UIAlertController(title: "Alerta", message: "Deseja realizar alterações no produto?", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Tirar foto", style: .default, handler: { _ in
+            self.imagePicker(sourceType: .camera)
+        }))
+        alert.addAction(UIAlertAction(title: "Escolher da galeria", style: .default, handler: { _ in
+            self.imagePicker(sourceType: .photoLibrary)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: { _ in
+
+        }))
+        alert.addAction(UIAlertAction(title: "Remover", style: .destructive, handler: { _ in
+            // completion para remover item
+            removeCompletion()
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    private func imagePicker(sourceType: UIImagePickerController.SourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
     }
 }
 
@@ -57,16 +84,21 @@ extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("clicou")
+        self.alertSheet(removeCompletion: {
+            //remove os itens do array no indexpath
+            self.controller.removeItem(indexPath: indexPath)
+            self.shoppingTableView.reloadData()
+        })
     }
 }
 
-extension ShoppingListViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let text = textField.text {
-            self.controller.didCreateItem(item: text)
-        }
-        self.shoppingTableView.reloadData()
-        return true
+extension ShoppingListViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let info = info[.originalImage] else { return }
+        self.controller.update(newImage: String(describing: info))
+
+        self.dismiss(animated: true, completion: nil)
     }
 }
+
