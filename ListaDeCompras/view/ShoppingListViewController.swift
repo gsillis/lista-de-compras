@@ -87,13 +87,11 @@ extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource
         // id usado para passar o indexPath para a controller
         self.id = indexPath.row
         
-        if !controller.emptyState() {
-            self.alertSheet(removeCompletion: {
-                //remove os itens do array no indexpath
-                self.controller.removeItem(indexPath: indexPath)
-                self.shoppingTableView.reloadData()
-            })
-        }
+        self.alertSheet(removeCompletion: {
+            //remove os itens do array no indexpath
+            self.controller.removeItem(indexPath: indexPath)
+            self.shoppingTableView.reloadData()
+        })
     }
 }
 
