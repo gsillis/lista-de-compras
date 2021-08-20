@@ -57,6 +57,9 @@ class ShoppingListViewController: UIViewController {
 
     private func imagePicker(sourceType: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
+
+        imagePicker.sourceType = sourceType
+
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
@@ -83,6 +86,7 @@ extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+<<<<<<< HEAD
 
         // id usado para passar o indexPath para a controller
         self.id = indexPath.row
@@ -92,6 +96,18 @@ extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource
             self.controller.removeItem(indexPath: indexPath)
             self.shoppingTableView.reloadData()
         })
+=======
+        // define que a variavel id == indexpath.row
+        self.id = indexPath.row
+
+        if !controller.emptyState() {
+            self.alertSheet(removeCompletion: {
+                //remove os itens do array no indexpath
+                self.controller.removeItem(indexPath: indexPath)
+                self.shoppingTableView.reloadData()
+            })
+        }
+>>>>>>> main
     }
 }
 
@@ -100,6 +116,7 @@ extension ShoppingListViewController: UIImagePickerControllerDelegate, UINavigat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let info = info[.imageURL] else { return }
 
+        //passa a variavel id com o indexpath que foi definido para a controller
         self.controller.update(newImage: String(describing: info), id: self.id ?? 0)
         self.shoppingTableView.reloadData()
         self.dismiss(animated: true, completion: nil)
