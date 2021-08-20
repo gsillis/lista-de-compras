@@ -86,16 +86,14 @@ extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // define que a variavel id == indexpath.row
-        self.id = indexPath.row
 
-        if !controller.emptyState() {
-            self.alertSheet(removeCompletion: {
-                //remove os itens do array no indexpath
-                self.controller.removeItem(indexPath: indexPath)
-                self.shoppingTableView.reloadData()
-            })
-        }
+        self.id = indexPath.row
+        
+        self.alertSheet(removeCompletion: {
+            //remove os itens do array no indexpath
+            self.controller.removeItem(indexPath: indexPath)
+            self.shoppingTableView.reloadData()
+        })
     }
 }
 

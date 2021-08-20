@@ -13,6 +13,7 @@ class EmptyCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.isUserInteractionEnabled = false
         // Initialization code
     }
 
