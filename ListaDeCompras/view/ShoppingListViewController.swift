@@ -51,7 +51,7 @@ class ShoppingListViewController: UIViewController {
             // completion para remover item
             removeCompletion()
         }))
-        
+
         self.present(alert, animated: true, completion: nil)
     }
 
@@ -86,6 +86,17 @@ extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+<<<<<<< HEAD
+
+        // id usado para passar o indexPath para a controller
+        self.id = indexPath.row
+        
+        self.alertSheet(removeCompletion: {
+            //remove os itens do array no indexpath
+            self.controller.removeItem(indexPath: indexPath)
+            self.shoppingTableView.reloadData()
+        })
+=======
         // define que a variavel id == indexpath.row
         self.id = indexPath.row
 
@@ -96,6 +107,7 @@ extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource
                 self.shoppingTableView.reloadData()
             })
         }
+>>>>>>> main
     }
 }
 
