@@ -51,7 +51,7 @@ class ShoppingListViewController: UIViewController {
             // completion para remover item
             removeCompletion()
         }))
-        
+
         self.present(alert, animated: true, completion: nil)
     }
 
@@ -87,6 +87,7 @@ extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+        // id usado para passar o indexPath para a controller
         self.id = indexPath.row
         
         self.alertSheet(removeCompletion: {
